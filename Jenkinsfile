@@ -6,23 +6,23 @@ pipeline {
   stages {
     stage('checkout') {
       steps {
-        git 'https://github.com/effectivejenkins/myProject.git'
+        git 'https://github.com/Dheeraj0725/myProject.git'
       }
     }
     stage('Build') {
       steps {
-        sh 'mvn clean compile'
+        bat 'mvn clean compile'
       }
     }
     stage('Test') {
       steps {
-        sh 'mvn test'
+        bat 'mvn test'
         junit '**/target/surefire-reports/TEST-*.xml'
       }
     }
     stage('Package') {
       steps {
-        sh 'mvn package'
+        bat 'mvn package'
       }
     }
   }
